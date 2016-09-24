@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"install": "echo '{ \"presets\": [\"es2015\"] }' > .babelrc"
+    "install": "echo '{ \"presets\": [\"es2015\"] }' > .babelrc"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,15 @@
     "bootstrap": "^4.0.0-alpha.4",
     "browserify": "^13.1.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-if": "^2.0.1",
+    "gulp-inline-image": "0.0.5",
+    "gulp-pixrem": "^1.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "sass-module-importer": "^1.2.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
