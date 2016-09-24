@@ -5,17 +5,35 @@
 var env = process.env.NODE_ENV || 'local';
 
 var gulp = require('gulp');
-var browserify = require('browserify');
 var babel = require('babelify');
-var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
+
+//
+// Watcher
+// ------------------------------
+
+gulp.task('watch', function() {
+    gulp.watch('src/js/**/*.*', { interval: 500 }, ['scripts']);
+});
+
+
+//
+// Tasks
+// ------------------------------
 
 gulp.task('scripts', function() {
 
     browserify('./src/js/application.js', {
             debug: true
         })
+		/*
+			ECMA6
+			http://babeljs.io/docs/plugins/preset-es2015/
+			https://github.com/babel/babelify#faq
+		*/
         .transform("babelify", {
             global: true,
 			sourceMaps: false,
@@ -32,8 +50,9 @@ gulp.task('scripts', function() {
 
 });
 
+
 //
 // Default task & Run
 // ------------------------------
 
-gulp.task('default', ['scripts']);
+gulp.task('default', ['watch', 'scripts']);
