@@ -10,4 +10,6 @@ $(document).ready(function() {
         selector: '[data-toggle="tooltip"]'
     });
 
+	console.log('Ready!');
+
 });

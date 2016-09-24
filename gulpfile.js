@@ -81,7 +81,7 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
 
     browserify(paths.src.scripts, {
-            debug: true
+            debug: env == 'local' ? true : false
         })
 		/*
 			ECMA6
@@ -90,7 +90,7 @@ gulp.task('scripts', function() {
 		*/
         .transform("babelify", {
             global: true,
-			sourceMaps: false,
+			sourceMaps: env == 'local' ? true : false,
             ignore: './node_modules/jquery'
         })
         .bundle()
